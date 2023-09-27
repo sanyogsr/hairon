@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hairon/constants.dart';
 import 'package:hairon/features/presentation/Layouts/mobile_screen_layout.dart';
-import 'package:hairon/features/presentation/screens/appointment.dart';
+import 'package:hairon/features/presentation/screens/appointment_screen.dart';
 import 'package:hairon/features/presentation/screens/discover_screen.dart';
 import 'package:hairon/features/presentation/screens/home_screen.dart';
 import 'package:hairon/features/presentation/screens/profile_screen.dart';
@@ -26,7 +26,7 @@ class OnGenerateRoute {
         }
       case PageConst.appointmentScreen:
         {
-          return materialBuilder(widget: Appointment());
+          return materialBuilder(widget: AppointmentScreen());
         }
       case PageConst.profileScreen:
         {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hairon/features/presentation/widgets/common/appointment_time_card.dart';
 import 'package:hairon/features/presentation/widgets/homescreen/below_header_bar_widget.dart';
 import 'package:hairon/features/presentation/widgets/homescreen/header_bar_widget.dart';
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
@@ -94,64 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             SizedBox(
                               height: 60,
                             ),
-                            Container(
-                              height: 80,
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                  color: fadeColor,
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    margin: EdgeInsets.only(
-                                        top: 20, left: 30, bottom: 20),
-                                    height: 55,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        color: primaryColor,
-                                        shape: BoxShape.circle),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: whiteColor,
-                                      size: 20,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 23, left: 20),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Tommorow at 12:30',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: primaryColor,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        SizedBox(
-                                          height: 4,
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'Hairstyling at ',
-                                              style: TextStyle(),
-                                            ),
-                                            Text(
-                                              'Salon Name',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                           AppointmentTimeCard(color: fadeColor,)
                           ],
                         )),
                   )),

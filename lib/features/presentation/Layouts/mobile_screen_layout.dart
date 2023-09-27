@@ -78,10 +78,10 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              FeatherIcons.heart,
+              FeatherIcons.user,
               color: _page == 3 ? primaryColor : Colors.black,
             ),
-            label: "Favourites",
+            label: "Me",
           ),
         ],
         onTap: navigationtopage,

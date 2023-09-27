@@ -38,7 +38,7 @@ class HeaderBarWidget extends StatelessWidget {
           ),
         ),
         CircleAvatar(
-          child: Text("pic"),
+          child: Image.asset("assets/man.png"),
           radius: 20,
           backgroundColor: Colors.grey,
         )
