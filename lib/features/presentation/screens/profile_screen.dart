@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hairon/features/presentation/widgets/common/simple_text.dart';
+import 'package:hairon/features/presentation/widgets/profileScreen/Favourite_widget.dart';
 import 'package:hairon/features/presentation/widgets/profileScreen/My_haircuts_widgets.dart';
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
 
@@ -16,7 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   List<Widget> pages = [
     MyHaircutsWidget(),
-    Center(child: Text("Haircuts")),
+    FavouriteWidget(),
     Center(child: Text("Haircuts")),
   ];
 
@@ -56,6 +57,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 100,
                   width: 100,
                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/sanyogg.jpg"),
+                          fit: BoxFit.cover,
+                          filterQuality: FilterQuality.high),
                       borderRadius: BorderRadius.circular(50),
                       color: whiteColor,
                       boxShadow: [
@@ -64,12 +69,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             blurRadius: 10,
                             color: primaryColor.withOpacity(.6))
                       ]),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        FeatherIcons.user,
-                        size: 40,
-                      )),
                 )
               ],
             ),

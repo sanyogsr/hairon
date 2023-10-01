@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:hairon/constants.dart';
 import 'package:hairon/features/presentation/Layouts/mobile_screen_layout.dart';
 import 'package:hairon/features/presentation/screens/appointment_screen.dart';
+import 'package:hairon/features/presentation/screens/auth/signup_screen.dart';
 import 'package:hairon/features/presentation/screens/discover_screen.dart';
 import 'package:hairon/features/presentation/screens/home_screen.dart';
 import 'package:hairon/features/presentation/screens/profile_screen.dart';
@@ -13,6 +14,10 @@ class OnGenerateRoute {
 
     switch (settings.name) {
       case "/":
+        {
+          return materialBuilder(widget: SignupScreen());
+        }
+      case PageConst.mobileScreenLayout:
         {
           return materialBuilder(widget: MobileScreenLayout());
         }
