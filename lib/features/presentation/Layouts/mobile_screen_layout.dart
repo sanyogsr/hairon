@@ -38,8 +38,6 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
     });
   }
 
-  // String username = "";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

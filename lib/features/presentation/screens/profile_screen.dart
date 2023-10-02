@@ -3,6 +3,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hairon/features/presentation/widgets/common/simple_text.dart';
 import 'package:hairon/features/presentation/widgets/profileScreen/Favourite_widget.dart';
 import 'package:hairon/features/presentation/widgets/profileScreen/My_haircuts_widgets.dart';
+import 'package:hairon/features/presentation/widgets/profileScreen/edit_profile.dart';
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,13 +14,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final PageController _pageController = PageController();
   int currentPageIndex = 0;
 
-  List<Widget> pages = [
-    MyHaircutsWidget(),
-    FavouriteWidget(),
-    Center(child: Text("Haircuts")),
-  ];
+  List<Widget> pages = [MyHaircutsWidget(), FavouriteWidget(), EditProfile()];
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +102,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           // Page content
           Expanded(
             child: PageView.builder(
+              controller: _pageController,
+              // physics: AlwaysScrollableScrollPhysics(
+              //     parent: BouncingScrollPhysics()),
+              scrollBehavior: MaterialScrollBehavior(),
               itemCount: pages.length,
               onPageChanged: (index) {
                 setState(() {
@@ -129,6 +131,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() {
           currentPageIndex = index;
         });
+        _pageController.animateToPage(index,
+            duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 10.0),

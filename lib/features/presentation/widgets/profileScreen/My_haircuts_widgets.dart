@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hairon/features/presentation/widgets/auth/mobile_auth_form_widget.dart';
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
 
 class MyHaircutsWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class MyHaircutsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: AlwaysScrollableScrollPhysics(parent: ClampingScrollPhysics()),
+        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
         itemCount: 10,
         itemBuilder: (context, index) {
           return photoCard();
@@ -15,47 +16,73 @@ class MyHaircutsWidget extends StatelessWidget {
   }
 
   Widget photoCard() {
-    return Container(
-      margin: EdgeInsets.all(20),
-      height: 250,
-      width: 200,
-      decoration: BoxDecoration(
-          color: whiteColor,
-          border: Border.all(color: primaryColor, width: .5),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(1, 1),
-                color: primaryColor.withOpacity(.6),
-                blurRadius: 6)
-          ]),
-      child: Container(
-        child: Column(
+    return Stack(children: [
+      Container(
+        margin: EdgeInsets.all(20),
+        height: 250,
+        width: double.infinity,
+        decoration: BoxDecoration(
+            color: whiteColor,
+            border: Border.all(color: primaryColor, width: .5),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(1, 1),
+                  color: primaryColor.withOpacity(.6),
+                  blurRadius: 6)
+            ]),
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                height: 200,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    image: DecorationImage(
+                        image: AssetImage("assets/sanyogg.jpg"),
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                height: 17,
+              ),
+              Text(
+                "Haircut : Jazzy & Curly Cut",
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w300),
+              ),
+            ],
+          ),
+        ),
+      ),
+      Positioned(
+        top: 30, // Adjust this value as needed
+        right: 30, // Adjust this value as needed
+        child: Row(
           children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                  image: DecorationImage(
-                      image: AssetImage("assets/sanyogg.jpg"),
-                      fit: BoxFit.cover)),
+            Text(
+              " with Hairon",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             SizedBox(
-              height: 17,
+              width: 1,
             ),
-            Text(
-              "Haircut : Jazzy & Curly Cut",
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w300),
+            Icon(
+              Icons.favorite,
+              color: Colors.red,
+              size: 10,
             )
           ],
         ),
       ),
-    );
+    ]);
   }
 }

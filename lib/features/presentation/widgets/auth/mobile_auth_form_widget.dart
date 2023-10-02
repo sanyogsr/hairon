@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
 
-Widget mobileAuthFormWidget({required VoidCallback onVerify}) {
+Widget mobileAuthFormWidget(
+    {required VoidCallback onVerify, required bool showOtpForm}) {
   TextEditingController _phoneNumberController = TextEditingController();
 
   return Column(
@@ -26,7 +26,9 @@ Widget mobileAuthFormWidget({required VoidCallback onVerify}) {
           sizedBox(20),
           InkWell(
             onTap: () {
-              onVerify();
+              if (!showOtpForm) {
+                onVerify();
+              }
               print(_phoneNumberController.text);
             },
             child: Container(

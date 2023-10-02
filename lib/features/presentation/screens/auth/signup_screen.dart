@@ -21,7 +21,7 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: whiteColor,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
         child: Padding(
           padding: EdgeInsets.only(left: 30, right: 30, top: 80, bottom: 60),
           child: Column(
@@ -53,48 +53,64 @@ class _SignupScreenState extends State<SignupScreen> {
                   height: 40,
                 ),
                 AnimatedSwitcher(
-                    duration: Duration(seconds: 1),
-                    child: !showOtpForm
-                        ? mobileAuthFormWidget(onVerify: () {
+                  duration: Duration(seconds: 1),
+                  child: !showOtpForm
+                      ? mobileAuthFormWidget(
+                          onVerify: () {
                             setState(() {
                               showOtpForm = true;
                             });
-                          })
-                        : OtpVerifyForm()),
-                sizedBox(50),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: blackColor.withOpacity(.3),
-                        thickness: 1,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      child: Text("Or"),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: blackColor.withOpacity(.3),
-                        thickness: 1,
-                      ),
-                    ),
-                  ],
+                          },
+                          showOtpForm: showOtpForm)
+                      : OtpVerifyForm(
+                          onGoBack: () {
+                            setState(() {
+                              showOtpForm = false;
+                            });
+                          },
+                        ),
                 ),
-                sizedBox(40),
-                authButton(
-                    logoName: "google",
-                    title: "Continue with Google",
-                    textColor: blackColor,
-                    backgroundColor: fadeColor),
-                sizedBox(20),
-                authButton(
-                    logoName: "apple-logo",
-                    title: "Continue with Apple",
-                    textColor: whiteColor,
-                    backgroundColor: blackColor,
-                    iconColor: whiteColor)
+                sizedBox(50),
+                Visibility(
+                  visible: !showOtpForm,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              color: blackColor.withOpacity(.3),
+                              thickness: 1,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            child: Text("Or"),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: blackColor.withOpacity(.3),
+                              thickness: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      sizedBox(40),
+                      authButton(
+                          logoName: "google",
+                          title: "Continue with Google",
+                          textColor: blackColor,
+                          backgroundColor: fadeColor),
+                      sizedBox(20),
+                      authButton(
+                          logoName: "apple-logo",
+                          title: "Continue with Apple",
+                          textColor: whiteColor,
+                          backgroundColor: blackColor,
+                          iconColor: whiteColor),
+                    ],
+                  ),
+                ),
               ]),
         ),
       ),

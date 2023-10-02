@@ -3,7 +3,8 @@ import 'package:hairon/constants.dart';
 import 'package:hairon/features/presentation/widgets/styling/theme/style.dart';
 
 class OtpVerifyForm extends StatefulWidget {
-  const OtpVerifyForm({Key? key}) : super(key: key);
+  final VoidCallback onGoBack;
+  const OtpVerifyForm({Key? key, required this.onGoBack}) : super(key: key);
 
   @override
   State<OtpVerifyForm> createState() => _MobileAuthFormWidgetState();
@@ -15,16 +16,17 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text(
-          "Verify Otp",
-          style: TextStyle(color: blackColor, fontSize: 12),
-        ),
-        sizedBox(15),
         Form(
             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              "Verify Otp",
+              style: TextStyle(color: blackColor, fontSize: 12),
+            ),
+            sizedBox(15),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: TextField(
@@ -45,11 +47,20 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
                         blurRadius: 10),
                   ]),
             ),
-            sizedBox(20),
+            sizedBox(10),
+            GestureDetector(
+              onTap: () async => __showOtpResendDialog(context),
+              child: Text(
+                " Don't receive Otp?",
+                style: TextStyle(color: blackColor, fontSize: 12),
+              ),
+            ),
+            sizedBox(40),
             InkWell(
               onTap: () {
                 print(_phoneNumberController.text);
-                Navigator.pushNamed(context, PageConst.mobileScreenLayout);
+                Navigator.popAndPushNamed(
+                    context, PageConst.mobileScreenLayout);
               },
               child: Container(
                 child: Center(
@@ -75,11 +86,70 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
             )
           ],
         )),
+        sizedBox(150),
+        Container(
+          width: 100,
+          child: TextButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(fadeColor)),
+              onPressed: () {
+                print("Preesed");
+                widget.onGoBack();
+              },
+              child: Row(
+                children: [Icon(Icons.arrow_left), Text("Go back")],
+              )),
+        ),
       ],
     );
   }
 
   Widget sizedBox(double height) {
     return SizedBox(height: height);
+  }
+
+  Future<void> __showOtpResendDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              "Resend Otp",
+              style: TextStyle(
+                  color: blackColor, fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Would oyu like to resend the Otp",
+                  style: TextStyle(color: blackColor, fontSize: 16),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancel"),
+              ),
+              TextButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(primaryColor),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(whiteColor),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 10))),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Resend"),
+              ),
+            ],
+          );
+        });
   }
 }
