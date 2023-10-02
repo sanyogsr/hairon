@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hairon/features/presentation/screens/auth/signup_screen.dart';
-import 'package:hairon/on_generate_route.dart';
+import 'package:hairon/features/Authentication/presentation/pages/signup_screen.dart';
+import 'package:hairon/config/on_generate_route.dart';
 
 Future<void> main() async {
   runApp(const Main());
