@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:hairon/config/route_constants.dart';
 import 'package:hairon/core/common/widgets/blue_color_text.dart';
 import 'package:hairon/core/common/widgets/simple_text.dart';
 import 'package:hairon/core/styling/theme/style.dart';
 
-Widget salonCard() {
+Widget salonCard(BuildContext context) {
   return InkWell(
+    onTap: () {
+      Navigator.pushNamed(context, PageConst.salonScreen);
+      // NestedNavigatorState().
+    },
     child: Container(
       margin: EdgeInsets.all(15),
       width: 360,

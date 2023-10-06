@@ -83,7 +83,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return salonCard(); // Replace with your custom card widget
+                return salonCard(context); // Replace with your custom card widget
               },
               childCount: 10, // Replace with your item count
             ),

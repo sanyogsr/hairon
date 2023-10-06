@@ -7,15 +7,6 @@ class MyHaircutsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return photoCard();
-        });
-  }
-
-  Widget photoCard() {
     return Stack(children: [
       Container(
         margin: EdgeInsets.all(20),
