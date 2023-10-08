@@ -14,10 +14,10 @@ class BelowHeaderBarWidget extends StatelessWidget {
             'Welcome back, $name',
             style: TextStyle(fontSize: 18, color: primaryColor),
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
-          Text(
+          const Text(
             'What are you\n looking for?',
             style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
           ),

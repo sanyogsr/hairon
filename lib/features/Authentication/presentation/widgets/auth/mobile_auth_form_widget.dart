@@ -29,9 +29,19 @@ Widget mobileAuthFormWidget(
               if (!showOtpForm) {
                 onVerify();
               }
-              print(_phoneNumberController.text);
             },
             child: Container(
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: primaryColor.withOpacity(.9),
+                  boxShadow: [
+                    BoxShadow(
+                        offset: const Offset(2, 4),
+                        color: whiteColor,
+                        blurRadius: 10),
+                  ]),
               child: Center(
                   child: Text(
                 "Verify",
@@ -40,17 +50,6 @@ Widget mobileAuthFormWidget(
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               )),
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(11),
-                  color: primaryColor.withOpacity(.9),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(2, 4),
-                        color: whiteColor,
-                        blurRadius: 10),
-                  ]),
             ),
           )
         ],

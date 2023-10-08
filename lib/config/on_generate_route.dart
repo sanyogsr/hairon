@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hairon/config/route_constants.dart';
 import 'package:hairon/features/Salon/presentation/pages/salon_screen.dart';
 import 'package:hairon/features/layout/presentation/pages/mobile_screen_layout.dart';
@@ -11,16 +10,16 @@ import 'package:hairon/features/profile/presentation/pages/profile_screen.dart';
 
 class OnGenerateRoute {
   static Route<dynamic> route(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
 
     switch (settings.name) {
       case "/":
         {
-          return materialBuilder(widget: SignupScreen());
+          return materialBuilder(widget: const SignupScreen());
         }
       case PageConst.mobileScreenLayout:
         {
-          return materialBuilder(widget: MobileScreenLayout());
+          return materialBuilder(widget: const MobileScreenLayout());
         }
       case PageConst.homeScreen:
         {
@@ -28,15 +27,15 @@ class OnGenerateRoute {
         }
       case PageConst.discoverScreen:
         {
-          return materialBuilder(widget: DiscoverScreen());
+          return materialBuilder(widget: const DiscoverScreen());
         }
       case PageConst.appointmentScreen:
         {
-          return materialBuilder(widget: AppointmentScreen());
+          return materialBuilder(widget: const AppointmentScreen());
         }
       case PageConst.profileScreen:
         {
-          return materialBuilder(widget: ProfileScreen());
+          return materialBuilder(widget: const ProfileScreen());
         }
       case PageConst.salonScreen:
         {
@@ -54,10 +53,10 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Error Aagya yrr"),
+        title: const Text("Error Aagya yrr"),
       ),
       body: Container(
-        child: Center(
+        child: const Center(
           child: Text('Error Page'),
         ),
       ),

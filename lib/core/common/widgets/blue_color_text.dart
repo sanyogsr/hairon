@@ -7,7 +7,7 @@ class BlueColorText extends StatelessWidget {
   final String text;
   final double fontsize;
   final bool isFontWeightNeeded;
-  BlueColorText({
+ const BlueColorText({
     Key? key,
     required this.text,
     required this.fontsize,

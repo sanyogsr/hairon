@@ -2,14 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:hairon/core/styling/theme/style.dart';
 
 class SimpleText extends StatelessWidget {
   final String text;
   final double fontsize;
   final Color? color;
 
-  SimpleText({
+ const SimpleText({
     Key? key,
     required this.text,
     required this.fontsize,

@@ -7,17 +7,17 @@ class HeaderBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Container(
           height: 35,
           width: 94,
           decoration: BoxDecoration(
               color: whiteColor,
-              borderRadius: BorderRadius.all(Radius.circular(30))),
-          child: Center(
+              borderRadius: const BorderRadius.all(Radius.circular(30))),
+          child: const Center(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -38,9 +38,9 @@ class HeaderBarWidget extends StatelessWidget {
           ),
         ),
         CircleAvatar(
-          child: Image.asset("assets/man.png"),
           radius: 20,
           backgroundColor: Colors.grey,
+          child: Image.asset("assets/man.png"),
         )
       ]),
     );

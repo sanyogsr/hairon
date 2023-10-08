@@ -9,12 +9,10 @@ class FullScreenImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: PhotoView(
-          imageProvider: AssetImage(imageUrl),
-          backgroundDecoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5), // Background color with opacity
-          ),
+      body: PhotoView(
+        imageProvider: AssetImage(imageUrl),
+        backgroundDecoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.5), // Background color with opacity
         ),
       ),
     );

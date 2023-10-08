@@ -28,12 +28,7 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
             ),
             sizedBox(15),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none, hintText: "Enter Otp"),
-                keyboardType: TextInputType.number,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               height: 50,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -42,10 +37,15 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
                   color: backgroundColor.withOpacity(1),
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(2, 4),
+                        offset: const Offset(2, 4),
                         color: whiteColor,
                         blurRadius: 10),
                   ]),
+              child: const TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none, hintText: "Enter Otp"),
+                keyboardType: TextInputType.number,
+              ),
             ),
             sizedBox(10),
             GestureDetector(
@@ -58,11 +58,21 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
             sizedBox(40),
             InkWell(
               onTap: () {
-                print(_otpController.text);
                 Navigator.popAndPushNamed(
                     context, PageConst.mobileScreenLayout);
               },
               child: Container(
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(11),
+                    color: primaryColor.withOpacity(.9),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: const Offset(2, 4),
+                          color: whiteColor,
+                          blurRadius: 10),
+                    ]),
                 child: Center(
                     child: Text(
                   "Verify with Otp",
@@ -71,32 +81,20 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                 )),
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(11),
-                    color: primaryColor.withOpacity(.9),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(2, 4),
-                          color: whiteColor,
-                          blurRadius: 10),
-                    ]),
               ),
             )
           ],
         )),
         sizedBox(150),
-        Container(
+        SizedBox(
           width: 100,
           child: TextButton(
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(fadeColor)),
               onPressed: () {
-                print("Preesed");
                 widget.onGoBack();
               },
-              child: Row(
+              child: const Row(
                 children: [Icon(Icons.arrow_left), Text("Go back")],
               )),
         ),
@@ -133,7 +131,7 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("Cancel"),
+                child: const Text("Cancel"),
               ),
               TextButton(
                 style: ButtonStyle(
@@ -142,11 +140,11 @@ class _MobileAuthFormWidgetState extends State<OtpVerifyForm> {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(whiteColor),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 10))),
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 10))),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text("Resend"),
+                child: const Text("Resend"),
               ),
             ],
           );

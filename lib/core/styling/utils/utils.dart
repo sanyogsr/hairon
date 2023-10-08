@@ -6,7 +6,7 @@ import 'package:hairon/features/profile/presentation/pages/profile_screen.dart';
 
 List<Widget> homeScreenItems = [
   HomeScreen(),
-  DiscoverScreen(),
-  AppointmentScreen(),
-  ProfileScreen(),
+  const DiscoverScreen(),
+  const AppointmentScreen(),
+  const ProfileScreen(),
 ];

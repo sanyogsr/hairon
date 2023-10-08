@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hairon/features/Authentication/presentation/widgets/auth/mobile_auth_form_widget.dart';
 import 'package:hairon/core/styling/theme/style.dart';
 
 class MyHaircutsWidget extends StatelessWidget {
@@ -9,7 +8,7 @@ class MyHaircutsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Container(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         height: 250,
         width: double.infinity,
         decoration: BoxDecoration(
@@ -18,7 +17,7 @@ class MyHaircutsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                  offset: Offset(1, 1),
+                  offset: const Offset(1, 1),
                   color: primaryColor.withOpacity(.6),
                   blurRadius: 6)
             ]),
@@ -28,7 +27,7 @@ class MyHaircutsWidget extends StatelessWidget {
               Container(
                 height: 200,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20)),
@@ -36,10 +35,10 @@ class MyHaircutsWidget extends StatelessWidget {
                         image: AssetImage("assets/sanyogg.jpg"),
                         fit: BoxFit.cover)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 17,
               ),
-              Text(
+              const Text(
                 "Haircut : Jazzy & Curly Cut",
                 style: TextStyle(
                     color: Colors.black87,
@@ -50,7 +49,7 @@ class MyHaircutsWidget extends StatelessWidget {
           ),
         ),
       ),
-      Positioned(
+      const Positioned(
         top: 30, // Adjust this value as needed
         right: 30, // Adjust this value as needed
         child: Row(

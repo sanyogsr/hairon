@@ -18,7 +18,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15))),
         onPressed: () {},
         child: Icon(
@@ -33,7 +33,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             scrolledUnderElevation: 1,
             leading: AnimatedOpacity(
               opacity: showLeadingIcon ? 1.0 : 0.0,
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               child: IconButton(
                 onPressed: () {},
                 icon: Icon(
@@ -45,7 +45,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             actions: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   FeatherIcons.search,
                   color: Colors.black,
                 ),
@@ -64,7 +64,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ),
                 ),
               ),
-              child: FlexibleSpaceBar(
+              child: const FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(
                   'Discover',
@@ -83,7 +83,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return salonCard(context); // Replace with your custom card widget
+                return salonCard(
+                    context); // Replace with your custom card widget
               },
               childCount: 10, // Replace with your item count
             ),
@@ -96,7 +97,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   Widget _discoverUpperRow() {
     return Container(
       color: whiteColor,
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -140,7 +141,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     return Column(
       children: [
         icon,
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Text(

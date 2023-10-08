@@ -19,7 +19,7 @@ Widget favouriteButton(
       width: screenWidth * 0.3,
       decoration: BoxDecoration(
           color: isFavourite ? whiteColor : blackColor.withOpacity(.5),
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,8 +27,9 @@ Widget favouriteButton(
             Icon(
               Icons.favorite,
               color: isFavourite ? Colors.red : whiteColor,
+              size: 20,
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             Text(
@@ -43,5 +44,3 @@ Widget favouriteButton(
     ),
   );
 }
-
-

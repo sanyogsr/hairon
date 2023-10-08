@@ -12,7 +12,8 @@ class AppointmentScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: fadeColor,
       body: CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         slivers: <Widget>[
           SliverAppBar(
             // scrolledUnderElevation: 1,
@@ -32,7 +33,7 @@ class AppointmentScreen extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(
                           color: blackColor.withOpacity(.4), width: 0.5))),
-              child: FlexibleSpaceBar(
+              child: const FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text(
                   "Appointments",
@@ -47,7 +48,7 @@ class AppointmentScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Container(
-                margin: EdgeInsets.only(left: 20, top: 20),
+                margin: const EdgeInsets.only(left: 20, top: 20),
                 child: Text(
                   "Upcoming",
                   style: TextStyle(
@@ -56,10 +57,11 @@ class AppointmentScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 )),
           ),
-          SliverPadding(padding: EdgeInsets.all(15), sliver: UpcomingList()),
+          SliverPadding(
+              padding: const EdgeInsets.all(15), sliver: upcomingList()),
           SliverToBoxAdapter(
             child: Container(
-                margin: EdgeInsets.only(left: 20),
+                margin: const EdgeInsets.only(left: 20),
                 child: Text(
                   "Past",
                   style: TextStyle(
@@ -68,8 +70,9 @@ class AppointmentScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 )),
           ),
-
-          SliverPadding(padding: EdgeInsets.all(15), sliver: AppointmentHistoryList()),
+          SliverPadding(
+              padding: const EdgeInsets.all(15),
+              sliver: AppointmentHistoryList()),
         ],
       ),
     );

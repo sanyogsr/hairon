@@ -79,7 +79,7 @@ class AppointmentTimeCard extends StatelessWidget {
   final bool? isMarginNeeded;
   final Color color;
 
-  AppointmentTimeCard({Key? key, this.isMarginNeeded, required this.color})
+ const AppointmentTimeCard({Key? key, this.isMarginNeeded, required this.color})
       : super(key: key);
 
   @override
@@ -90,7 +90,7 @@ class AppointmentTimeCard extends StatelessWidget {
     final cardHeight = screenHeight * 0.12;
 
     return Container(
-      margin: isMarginNeeded == true ? EdgeInsets.only(bottom: 10) : null,
+      margin:  isMarginNeeded == true ? const EdgeInsets.only(bottom: 10) : null,
       padding:
           EdgeInsets.symmetric(vertical: 16, horizontal: screenWidth * 0.05),
       width: double.infinity,
@@ -129,8 +129,8 @@ class AppointmentTimeCard extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 3),
-                Row(
+                const SizedBox(height: 3),
+                const Row(
                   children: [
                     Text(
                       'Hairstyling at ',

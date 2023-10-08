@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hairon/features/Authentication/presentation/widgets/auth/auth_button_widget.dart';
@@ -21,9 +20,11 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: whiteColor,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         child: Padding(
-          padding: EdgeInsets.only(left: 30, right: 30, top: 80, bottom: 60),
+          padding:
+              const EdgeInsets.only(left: 30, right: 30, top: 80, bottom: 60),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -36,12 +37,12 @@ class _SignupScreenState extends State<SignupScreen> {
                     height: 200,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     "It's Hairon",
                     style: TextStyle(
                         fontSize: 30,
@@ -49,11 +50,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 AnimatedSwitcher(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   child: !showOtpForm
                       ? mobileAuthFormWidget(
                           onVerify: () {
@@ -83,7 +84,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               thickness: 1,
                             ),
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             child: Text("Or"),
                           ),

@@ -6,6 +6,8 @@ import 'package:hairon/features/Home/presentation/widgets/homescreen/header_bar_
 import 'package:hairon/core/styling/theme/style.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -15,9 +17,9 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            HeaderBarWidget(),
+            const HeaderBarWidget(),
             SizedBox(height: screenHeight * 0.1),
-            BelowHeaderBarWidget(
+            const BelowHeaderBarWidget(
               name: "Kunal",
             ),
             SizedBox(
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: whiteColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(45),
                     topRight: Radius.circular(45),
                   ),
@@ -108,10 +110,10 @@ class HomeScreen extends StatelessWidget {
             width: 40,
             height: 40,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             serviceName,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ],
       ),

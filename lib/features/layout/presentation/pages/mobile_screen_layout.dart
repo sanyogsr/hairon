@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hairon/core/styling/utils/utils.dart';
@@ -34,7 +33,6 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   onPageChanged(int page) {
     setState(() {
       _page = page;
-      print(_page);
     });
   }
 
@@ -51,7 +49,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
         elevation: _page == 1 ? 16 : 0,
         type: BottomNavigationBarType.fixed,
         backgroundColor: whiteColor,
-        unselectedLabelStyle: TextStyle(color: Colors.black),
+        unselectedLabelStyle: const TextStyle(color: Colors.black),
         items: [
           BottomNavigationBarItem(
             icon: Icon(

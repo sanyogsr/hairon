@@ -2,10 +2,10 @@ import "package:flutter/material.dart";
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hairon/core/common/widgets/simple_text.dart';
 import 'package:hairon/core/styling/theme/style.dart';
-import 'package:hairon/features/Salon/presentation/widgets/favourite_button.dart';
-import 'package:hairon/features/profile/presentation/widgets/profileScreen/Favourite_widget.dart';
-import 'package:hairon/features/profile/presentation/widgets/profileScreen/My_haircuts_widgets.dart';
-import 'package:hairon/features/profile/presentation/widgets/profileScreen/edit_profile.dart';
+import 'package:hairon/features/Salon/presentation/widgets/pageviews/about_pageview.dart';
+import 'package:hairon/features/Salon/presentation/widgets/pageviews/gallery_pageview.dart';
+import 'package:hairon/features/Salon/presentation/widgets/pageviews/service_pageview.dart';
+
 import 'package:line_icons/line_icons.dart';
 
 class SalonScreen extends StatefulWidget {
@@ -19,7 +19,12 @@ class _SalonScreenState extends State<SalonScreen> {
   bool isFavourite = false;
   final PageController _pageController = PageController();
   int currentPageIndex = 0;
-  List<Widget> pages = [MyHaircutsWidget(), FavouriteWidget(), EditProfile()];
+
+  List<Widget> pages = [
+    const ServiceWidget(),
+    AboutWidget(),
+    const GalleryWidget()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +60,8 @@ class _SalonScreenState extends State<SalonScreen> {
         ],
       ),
       body: CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         slivers: [
           SliverToBoxAdapter(
             child: Container(
@@ -69,30 +75,18 @@ class _SalonScreenState extends State<SalonScreen> {
                   Container(
                     margin:
                         EdgeInsets.symmetric(horizontal: screenHeight * .03),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                  radius: 45,
-                                  child: Image.asset("assets/man.png"),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: screenHeight * .04),
-                            SimpleText(
-                                text:
-                                    "Hairstyling, Haircolour, Massage, Nail  etc",
-                                fontsize: 12),
-                          ],
+                        CircleAvatar(
+                          radius: 45,
+                          child: Image.asset("assets/man.png"),
+                        ),
+                        SizedBox(
+                          width: screenHeight * .017,
                         ),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                               height: screenHeight * .014,
@@ -101,20 +95,12 @@ class _SalonScreenState extends State<SalonScreen> {
                               "@Haironer",
                               style: TextStyle(color: primaryColor),
                             ),
-                            SizedBox(
-                              height: screenHeight * .037,
-                            ),
-                            favouriteButton(
-                                isFavourite: isFavourite,
-                                favouritebutton: () {
-                                  setState(() {
-                                    isFavourite = !isFavourite;
-                                  });
-                                },
-                                context: context,
-                                title: "Favourite")
                           ],
-                        )
+                        ),
+                        SizedBox(height: screenHeight * .04),
+                        const SimpleText(
+                            text: "Hairstyling, Haircolour, Massage, Nail  etc",
+                            fontsize: 12),
                       ],
                     ),
                   ),
@@ -181,7 +167,7 @@ class _SalonScreenState extends State<SalonScreen> {
                       InkWell(
                         onTap: () {},
                         child: Container(
-                          child: Row(
+                          child: const Row(
                             children: [
                               Icon(
                                 LineIcons.phoneVolume,
@@ -201,7 +187,7 @@ class _SalonScreenState extends State<SalonScreen> {
                       InkWell(
                         onTap: () {},
                         child: Container(
-                          child: Row(
+                          child: const Row(
                             children: [
                               Icon(
                                 LineIcons.rocketChat,
@@ -240,7 +226,7 @@ class _SalonScreenState extends State<SalonScreen> {
                     height: screenHeight,
                     child: PageView.builder(
                       controller: _pageController,
-                      scrollBehavior: MaterialScrollBehavior(),
+                      scrollBehavior: const MaterialScrollBehavior(),
                       itemBuilder: (context, index) {
                         return pages[index];
                       },
@@ -266,16 +252,17 @@ class _SalonScreenState extends State<SalonScreen> {
     return GestureDetector(
       onTap: () {
         _pageController.animateToPage(index,
-            duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         decoration: BoxDecoration(
             border: Border(
                 bottom: BorderSide(
                     width: 2,
                     color: currentPageIndex == index
-                        ? primaryColor ?? Colors.transparent
+                        ? primaryColor
                         : Colors.transparent))),
         child: Column(
           children: [
@@ -283,7 +270,7 @@ class _SalonScreenState extends State<SalonScreen> {
                 color: currentPageIndex == index
                     ? primaryColor
                     : Colors.grey[600]),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(

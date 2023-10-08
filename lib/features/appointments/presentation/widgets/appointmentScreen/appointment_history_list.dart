@@ -12,7 +12,7 @@ class AppointmentHistoryList extends StatelessWidget{
         delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
             return Container(
-              margin: EdgeInsets.only(bottom: 15, )
+              margin: const EdgeInsets.only(bottom: 15, )
 
               ,
               height: 100,
@@ -23,7 +23,7 @@ class AppointmentHistoryList extends StatelessWidget{
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                         top: 20, left: 30, bottom: 20),
                     height: 55,
                     width: 50,
@@ -55,10 +55,10 @@ class AppointmentHistoryList extends StatelessWidget{
                               color: primaryColor,
                               fontWeight: FontWeight.w800),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 4,
                         ),
-                        Row(
+                        const Row(
                           children: [
                             Text(
                               'Hairstyling at ',

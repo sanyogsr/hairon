@@ -12,7 +12,7 @@ Widget salonScreenButton(
       width: screenWidth * 0.23,
       decoration: BoxDecoration(
           color: primaryColor,
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Center(
         child: Text(
           title,

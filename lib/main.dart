@@ -16,14 +16,12 @@ class Main extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       onGenerateRoute: OnGenerateRoute.route,
       debugShowCheckedModeBanner: false,
-
       routes: {
         "/": (context) {
-          return SignupScreen();
+          return const SignupScreen();
         }
       },
       initialRoute: "/",
-      // home: SignupScreen(),
     );
   }
 }

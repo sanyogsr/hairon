@@ -12,7 +12,7 @@ Widget salonCard(BuildContext context) {
       // NestedNavigatorState().
     },
     child: Container(
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       width: 360,
       height: 260,
       decoration: BoxDecoration(
@@ -24,32 +24,32 @@ Widget salonCard(BuildContext context) {
               right: 10,
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(FeatherIcons.heart),
+                icon: const Icon(FeatherIcons.heart),
                 color: Colors.black.withOpacity(.4),
               )),
           Center(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 CircleAvatar(
                   radius: 40,
                   child: Image.asset("assets/man.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                BlueColorText(
+                const BlueColorText(
                   text: "Top In Town",
                   fontsize: 19,
                   isFontWeightNeeded: true,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
-                SimpleText(text: "Haircut , Haircolor", fontsize: 12),
-                SizedBox(
+                const SimpleText(text: "Haircut , Haircolor", fontsize: 12),
+                const SizedBox(
                   height: 20,
                 ),
                 Divider(
@@ -57,7 +57,7 @@ Widget salonCard(BuildContext context) {
                   endIndent: 20,
                   indent: 20,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(

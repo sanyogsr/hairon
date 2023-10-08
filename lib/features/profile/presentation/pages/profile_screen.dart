@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hairon/core/common/widgets/simple_text.dart';
 import 'package:hairon/features/profile/presentation/widgets/profileScreen/Favourite_widget.dart';
 import 'package:hairon/features/profile/presentation/widgets/profileScreen/My_haircuts_widgets.dart';
@@ -17,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final PageController _pageController = PageController();
   int currentPageIndex = 0;
 
-  List<Widget> pages = [MyHaircutsWidget(), FavouriteWidget(), EditProfile()];
+  List<Widget> pages = [MyHaircutsWidget(), const FavouriteWidget(), const EditProfile()];
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +25,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 60,
                     left: 20,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // ignore: prefer_const_constructors
                       SimpleText(text: "Himanshu Gupta", fontsize: 20),
-                      SizedBox(
+                      const SizedBox(
                         height: 2,
                       ),
                       SimpleText(
@@ -51,11 +51,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 60, right: 30),
+                  margin: const EdgeInsets.only(top: 60, right: 30),
                   height: 100,
                   width: 100,
                   decoration: BoxDecoration(
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           image: AssetImage("assets/sanyogg.jpg"),
                           fit: BoxFit.cover,
                           filterQuality: FilterQuality.high),
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: whiteColor,
                       boxShadow: [
                         BoxShadow(
-                            offset: Offset(3, 8),
+                            offset: const Offset(3, 8),
                             blurRadius: 10,
                             color: primaryColor.withOpacity(.6))
                       ]),
@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
 
@@ -103,9 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Expanded(
             child: PageView.builder(
               controller: _pageController,
-              // physics: AlwaysScrollableScrollPhysics(
-              //     parent: BouncingScrollPhysics()),
-              scrollBehavior: MaterialScrollBehavior(),
+              scrollBehavior: const MaterialScrollBehavior(),
               itemCount: pages.length,
               onPageChanged: (index) {
                 setState(() {
@@ -128,14 +126,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          
-        });
+        setState(() {});
         _pageController.animateToPage(index,
-            duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+            duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
