@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
+import "package:hairon/config/route_constants.dart";
 // import "package:hairon/core/styling/theme/style.dart";
 
 class ServiceItemWidget extends StatefulWidget {
@@ -110,11 +111,13 @@ class _ServiceItemWidgetState extends State<ServiceItemWidget>
           Row(
             children: [
               _buildButton("More..", "more", moreButtonScale, false,
-                  _moreButtonController),
+                  _moreButtonController, () {}),
               const SizedBox(width: 16), // Add spacing
 
               _buildButton("Book now", "bookNow", bookNowScale, true,
-                  _bookNowButtonController),
+                  _bookNowButtonController, () {
+                Navigator.pushNamed(context, PageConst.bookingScreen);
+              }),
 
               SizedBox(
                 width: MediaQuery.of(context).size.width * .016,
@@ -143,8 +146,9 @@ class _ServiceItemWidgetState extends State<ServiceItemWidget>
   }
 
   Widget _buildButton(String text, String buttonTpye, double scale,
-      bool isbookButton, AnimationController? controller) {
+      bool isbookButton, AnimationController? controller, VoidCallback? ontap) {
     return GestureDetector(
+      onTap: ontap,
       onTapDown: (details) {
         _tapDown(details, buttonTpye);
       },
@@ -152,7 +156,7 @@ class _ServiceItemWidgetState extends State<ServiceItemWidget>
         _tapUp(details, buttonTpye);
       },
       child: Transform.scale(
-        scale: scale ?? 1.0,
+        scale: scale,
         child: Container(
           width: isbookButton == true
               ? MediaQuery.of(context).size.width * .23

@@ -7,4 +7,5 @@ class PageConst {
   static const String profileScreen = "profileScreen";
   static const String mobileScreenLayout = "mobileScreenLayout";
   static const String salonScreen = "salonScreen";
+  static const String bookingScreen = "bookingScreen";
 }

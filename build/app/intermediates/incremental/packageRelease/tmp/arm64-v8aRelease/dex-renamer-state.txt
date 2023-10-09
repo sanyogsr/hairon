@@ -1,0 +1,4 @@
+#Tue Oct 10 00:30:35 IST 2023
+base.0=C\:\\Users\\91805\\OneDrive\\Desktop\\hairon\\hairon\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hairon/config/route_constants.dart';
 import 'package:hairon/features/Salon/presentation/pages/salon_screen.dart';
+import 'package:hairon/features/booking/presentation/pages/booking_screen.dart';
 import 'package:hairon/features/layout/presentation/pages/mobile_screen_layout.dart';
 import 'package:hairon/features/appointments/presentation/pages/appointment_screen.dart';
 import 'package:hairon/features/Authentication/presentation/pages/signup_screen.dart';
@@ -40,6 +41,10 @@ class OnGenerateRoute {
       case PageConst.salonScreen:
         {
           return materialBuilder(widget: SalonScreen());
+        }
+      case PageConst.bookingScreen:
+        {
+          return materialBuilder(widget: BookingScreen());
         }
 
       default:
